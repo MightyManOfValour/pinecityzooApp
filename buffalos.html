@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+            <div class="loader-wrapper">
+                <div class="loader"></div>
+            </div>
+            <div id="header">
+                <img src="images/logo.png">
+            </div>
+            <div id="tabs-top">
+            <a href="animals.html">ANIMALS</a>
+            <a href="index.html">MAP</a>
+            <a href="places.html">PLACES</a>
+            </div>
+            <div id="main">
+
+                    <div id="info-box-full">
+                        <img src="images/buffalo.jpg">
+                        <h3>BUFFALOS</h3>
+                        <p>The African buffalo (Syncerus caffer) is a large sub-Saharan African bovine. The adult African buffalo's horns are its characteristic feature: they have fused bases, forming a continuous bone shield across the top of the head, referred to as a "boss".</p>
+                        <p>The African buffalo is more closely related to other buffalo species than it is to other bovids such as American bison or domestic cattle, with its closest living relative being the Asian water buffalo. Its unpredictable temperament may be part of the reason that the African buffalo has never been domesticated, which would also explain why the African buffalo has no domesticated descendants, unlike the wild yak and wild water buffalo which are the ancestors of the domestic yak and water buffalo. Natural predators of adult African buffaloes include lions, African wild dogs, spotted hyenas, and Nile crocodiles. As one of the Big Five game animals, the Cape buffalo is a sought-after trophy in hunting.</p>
+                        <p><b>WHERE WILL YOU FIND THEM?</b></p>
+                        <p>You will find the buffalos beyond Panda Canyon.</p>
+                    </div>                                                                                                                                
+
+            </div>
+            <div id="tabs-bottom">
+            <a href="weather.html">WEATHER</a>
+            <a href="feedback.html">FEEDBACK</a>
+            </div>
+
+            <div id="myLink">
+                <p>© 2025, Phōtizō. All rights reserved.</p>
+            </div>
+
+<script>
+        // Loader
+        window.addEventListener("load", function() {
+            document.querySelector('.loader-wrapper').style.opacity = '0';
+            setTimeout(function() {
+                document.querySelector('.loader-wrapper').style.display = 'none';
+            }, 500);
+        });
+        
+</script>
+        </body>
+    </html>

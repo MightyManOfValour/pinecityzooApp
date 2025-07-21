@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <div id="header">
+        <img src="images/logo.png">
+    </div>
+    
+    <div id="tabs-top">
+        <a href="animals.html">ANIMALS</a>
+        <a href="index.html">MAP</a>
+        <a href="places.html">PLACES</a>
+    </div>
+    
+    <div id="main">
+
+        <div class="feedback-container">
+            <h2 class="feedback-title">Send Us Your Feedback</h2>
+            <form id="feedback-form" action="https://formspree.io/f/mnnzjpny" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="_replyto" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="_subject" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Feedback</label>
+                    <textarea id="message" name="message" class="form-control" required></textarea>
+                </div>
+                
+                <input type="hidden" name="_next" value="/message=received.html">
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <button type="submit" class="submit-btn">Send Feedback</button>
+                
+                <div id="form-message" class="form-message"></div>
+            </form>
+        </div>
+    </div>
+    
+    <div id="tabs-bottom">
+        <a href="weather.html">WEATHER</a>
+        <a href="feedback.html">FEEDBACK</a>
+    </div>
+    
+    <div id="myLink">
+        <p>© 2025, Phōtizō. All rights reserved.</p>
+    </div>
+
+    <script>
+        // Form submission handling
+        document.getElementById('feedback-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const messageDiv = document.getElementById('form-message');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            messageDiv.style.display = 'none';
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success message
+                    messageDiv.textContent = 'Thank you! Your feedback has been submitted.';
+                    messageDiv.className = 'form-message success';
+                    form.reset();
+                } else {
+                    // Error message
+                    messageDiv.textContent = 'Oops! There was a problem submitting your feedback. Please try again.';
+                    messageDiv.className = 'form-message error';
+                }
+                messageDiv.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Feedback';
+                
+                // Scroll to message
+                messageDiv.scrollIntoView({ behavior: 'smooth' });
+            })
+            .catch(error => {
+                messageDiv.textContent = 'Oops! There was a problem submitting your feedback. Please try again.';
+                messageDiv.className = 'form-message error';
+                messageDiv.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Feedback';
+                messageDiv.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Loader
+        window.addEventListener("load", function() {
+            document.querySelector('.loader-wrapper').style.opacity = '0';
+            setTimeout(function() {
+                document.querySelector('.loader-wrapper').style.display = 'none';
+            }, 500);
+        });
+    </script>
+</body>
+</html>

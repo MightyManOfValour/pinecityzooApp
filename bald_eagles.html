@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+            <div class="loader-wrapper">
+                <div class="loader"></div>
+            </div>
+            
+            <div id="header">
+                <img src="images/logo.png">
+            </div>
+            <div id="tabs-top">
+            <a href="animals.html">ANIMALS</a>
+            <a href="index.html">MAP</a>
+            <a href="places.html">PLACES</a>
+            </div>
+            <div id="main">
+
+                    <div id="info-box-full">
+                        <img src="images/bald_eagle.jpg">
+                        <h3>BALD EAGLES</h3>
+                        <p>The bald eagle (Haliaeetus leucocephalus) is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle (Haliaeetus albicilla), which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.</p>
+                        <p>The bald eagle is an opportunistic feeder that subsists mainly on fish, upon which it swoops down and snatches from the water with its talons. It builds the largest nest of any North American bird and the largest tree nests ever recorded for any animal species, up to 4 m (13 ft) deep, 2.5 m (8.2 ft) wide, and 1 metric ton (1.1 tons) in weight. Sexual maturity is attained at the age of four to five years.</p>
+                        <p>Bald eagles are not bald; the name derives from an older meaning of the word, "white-headed". The adult is mainly brown with a white head and tail. The sexes are identical in plumage, but females are about 25 percent larger than males. The yellow beak is large and hooked. The plumage of the immature is brown.</p>
+                        <p><b>WHERE WILL YOU FIND THEM?</b></p>
+                        <p>You will find the bald eagles near the entrance of the zoo.</p>
+                    </div>                                                                                                                                
+
+            </div>
+            <div id="tabs-bottom">
+            <a href="weather.html">WEATHER</a>
+            <a href="feedback.html">FEEDBACK</a>
+            </div>
+            <div id="myLink">
+                <p>© 2025, Phōtizō. All rights reserved.</p>
+            </div>
+
+<script>
+        // Loader
+        window.addEventListener("load", function() {
+            document.querySelector('.loader-wrapper').style.opacity = '0';
+            setTimeout(function() {
+                document.querySelector('.loader-wrapper').style.display = 'none';
+            }, 500);
+        });
+        
+</script>
+        </body>
+    </html>
